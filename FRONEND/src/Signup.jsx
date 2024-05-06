@@ -73,7 +73,7 @@ function Signup() {
           }}>
             <div className="bg-white p-5 rounded w-75">
             <div className="text-center mb-4">
-        <img src="../img/cuenta.png" alt="Descripción de la imagen" className="img-fluid" style={{ maxWidth: '200px' }} />
+        <img src="../img/cuenta.png" alt="Descripción de la imagen" className="img-fluid" style={{ maxWidth: '150px' }} />
       </div>
                 <h2>Crear Cuenta Nueva</h2>
                 <form onSubmit={handleSubmit}>
