@@ -1,113 +1,72 @@
-body{
-    background-image: url(ciudad.jpg);
-    background-repeat: no-repeat;
-    background-position:center;
-    background-size: cover;
-    height: 100vh;
+/* Estilos globales */
+body {
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  margin: 0;
 }
-.desplegable{
-    background: #1e1e1e;
+
+header {
+  background-color: #fff3f3;
+  color: white;
+  padding: 5px;
 }
-.barras{
-    display: none;
+
+h1 {
+  margin: 0;
+  font-size: 2em;
 }
-ul{
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
+
+nav {
+  background-color: #696969;
+  padding: 10px;
 }
-li{
-    list-style: none;
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-nav a{
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    font-size: 1.1rem;
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
 }
-li a{
-    padding: 10px;
-    display: block;
-    text-align: left;
+
+nav a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.9s;
 }
-ul li a:hover{
-    background: #ff5722;
+
+nav a:hover {
+  color: #000;
 }
-/*aca configuro como se veria en tablet*/
-@media (max-width: 850px){
-    .barras{
-        background-color: #1e1e1e;
-        display: block;
-    }
-    .desplegable{
-        /*width: 50%;
-        height: 100vh;*/
-        transform: translate(-100%);
-        transition: 0.5s;
-        font-size: 1.5rem;
-        width: 50%;
-        background: rgba(30, 30, 30, 0.5);
-        backdrop-filter: blur(2px);
-    }
-    i{
-        font-size: 30px;
-        background: #1e1e1e;
-        color: white;
-    }
-    li a{
-        padding: 20px 0px 20px 20px;
-        display: block;
-        text-align: left;
-    }
-    ul{
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-    button{
-        margin: 10px 10px 10px 20px;
-        border: none;
-    }
-    .boton_menu{
-        background-image: url('../img/icono_menu.png');
-        background-color: #1e1e1e;
-        background-repeat: no-repeat;
-        height: 30px;
-        width: 30px;
-        background-size: 30px 30px;
-        background-position:center;
-    }
-    /*con esta clase abro y cierro el menu con toggle*/
-    .abrir_menu{
-        background: rgba(30, 30, 30, 0.6);
-        backdrop-filter: blur(2px);
-        transform: translate(0%);
-        width: 50%;
-        transition: 0.5s;
-    }
-    /*con esta clase cambio las barras por una x*/
-    .colocar_x{
-        background-image: url('../img/icono_x.png');
-        background-color: #1e1e1e;
-        background-repeat: no-repeat;
-        height: 30px;
-        width: 30px;
-        background-size: 30px 30px;
-        background-position:center;
-    }
+
+main {
+  padding: 20px;
 }
-/*aca configuro como se veria en celular*/
-@media (max-width: 500px){
-    .desplegable{
-        width: 100%;
-        height: 100vh;
-        font-size: 1.6rem;
-    }
-    button{
-        margin: 10px 10px 10px 15px;
-    }
+
+/* Estilo para botones */
+button {
+  background-color: #333;
+  color: white;
+  padding: 0px 200px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #222;
+}
+
+/* styles.css */
+
+.my-form-container {
+  background-color: #be0808; /* Color de fondo gris claro */
+  padding: 20px; /* Añade espacio alrededor del formulario */
+  border-radius: 10px; /* Bordes redondeados */
+  /* Otros estilos para el contenedor del formulario */
 }
