@@ -26,8 +26,8 @@ function App() {
         <div>
           <Routes>
             <Route path="/register" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/Home" element={<Home />} />
             <Route exact path="/password-reset-request" component={PasswordResetRequest} />
         <Route exact path="/password-reset/:token" component={PasswordReset} />
           </Routes>

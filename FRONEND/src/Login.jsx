@@ -36,10 +36,10 @@ function Login() {
 
     return (
         <div className="d-flex justify-content-center align-items-center" style={{ 
-            background: 'linear-gradient(to bottom, gray, black)',  minHeight: '100vh', minWidth:'100vw'
+            backgroundImage: 'url(./img/loginFO.jpg)', backgroundSize: 'cover',  minHeight: '100vh', minWidth:'100vw'
           }}>
             
-            <div className="bg-white p-5 rounded 10  text-center"style={{ backgroundImage: 'url(./img/loginF.jpg)', backgroundSize: 'cover' }}>
+            <div className="p-5 rounded 10  text-center"style={{  backgroundColor: 'transparent', border: '0.3px solid #000', borderRadius: '20px', boxShadow: 'rgba(0, 0, 0, 0.4) 0px 2px 10px 0px, rgba(0, 0, 0, 0.5) 0px 2px 25px 0px' }}>
                 <img src="./img/usuario.png" alt="Logo" className="img-fluid mb-4" style={{maxWidth: "110px", maxHeight: "100px"}}/>
                 <h1 className="text-center" style={{ color: '#ffffff', fontSize: '2rem', fontWeight: 'bold' }}>INICIO DE SESIÓN</h1>
                 <form onSubmit={handleSubmit}>
@@ -83,7 +83,8 @@ function Login() {
                         WebkitBoxReflect: 'below 10px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.0))',
                     }}
                     >
-                    Iniciar Sesión
+                   <Link to="/home"></Link>
+                Iniciar Sesión
                     </button>
 
                     {message && <p style={{ color: message.includes('fallido') ? '#ffffff' : 'inherit' }}>{message}</p>} {/* Mostrar el mensaje */}
@@ -91,20 +92,22 @@ function Login() {
                 </form>
                 <div>
                     <button onClick={handleGoogleLogin} className="btn btn-default border w-50 text-decoration-none" style={{ 
-                        backgroundColor: 'blue',
-                        color: 'ghostwhite',
-                        borderRadius: '100',
-                        marginTop: '10px',
+                        backgroundColor: 'white',
+                        color: 'black',
+                        borderRadius: '90px',
+                        marginTop: '20px',
                     }}>
-                        Iniciar con Google
+                        <img src="./img/google.png" alt="Google Icon" style={{ width: '20px', height: '20px', marginRight: '5px' }} /> 
+                        Iniciar Google
                     </button>
                     <button onClick={handleFacebookLogin} className="btn btn-default border w-50 text-decoration-none" style={{ 
                         backgroundColor: 'blue',
-                        color: 'ghostwhite',
-                        borderRadius: '100',
-                        marginTop: '10px',
+                        color: 'white',
+                        borderRadius: '90px',
+                        marginTop: '20px',
                     }}>
-                        Iniciar con Facebook
+                        <img src="./img/facebook2.png" alt="Facebook Icon" style={{ width: '20px', height: '20px', marginRight: '5px' }} />
+                        Iniciar Facebook
                     </button>
                 </div>
                 <Link to="/register" className="btn btn-default border w-50 text-decoration-none" style={{ 
