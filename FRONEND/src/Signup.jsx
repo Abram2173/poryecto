@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
-
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Signup() {
-    const [name, setName] = useState()
-    const [email, setEmail] = useState()
-    const [password, setPassword ] = useState()
+    const [name, setName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword ] = useState("")
 
     const navigate = useNavigate() 
     
@@ -22,7 +22,9 @@ function Signup() {
           })
           .then((result) => {
             console.log(result);
-            navigate("/login");
+            // Mostrar mensaje de éxito
+            toast.success('Registro exitoso');
+            navigate("/register");
           })
           .catch((err) => console.log(err));
       };
@@ -113,4 +115,4 @@ function Signup() {
     );
 }
 
-export default Signup
+export default Signup;

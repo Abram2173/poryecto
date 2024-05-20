@@ -9,3 +9,4 @@ const CiclimoShema = new mongoose.Schema({
 
 const CiclimoModel = mongoose.model("usuario", CiclimoShema)
 module.exports = CiclimoModel
+

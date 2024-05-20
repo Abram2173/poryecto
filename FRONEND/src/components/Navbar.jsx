@@ -1,53 +1,68 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import BurguerButton from './BurguerButton'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import BurguerButton from './BurguerButton';
 
-function Navbar() {
+function Navbar({ userId }) {
+    const [clicked, setClicked] = useState(false);
+    const navigate = useNavigate();
 
-  const [clicked, setClicked] = useState(false)
-  const handleClick = () => {
-    //cuando esta true lo pasa a false y vice versa
-    setClicked(!clicked)
-  }
-  return (
-    <>
-      <NavContainer>
-        <h2>Navbar <span>Responsive</span></h2>
-        <div className={`links ${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="#h">Home</a>
+    const handleClick = () => {
+        // cuando está true lo pasa a false y viceversa
+        setClicked(!clicked);
+    };
 
-          <a onClick={handleClick} href="#h">Blog</a>
-        </div>
-        <div className='burguer'>
-          <BurguerButton clicked={clicked} handleClick={handleClick} />
-        </div>
-        <BgDiv className={`initial ${clicked ? ' active' : ''}`}></BgDiv>
-      </NavContainer>
-    </>
-  )
+    const handleLogout = () => {
+        // Aquí puedes agregar la lógica de cierre de sesión, como eliminar el token o limpiar el estado del usuario
+        // Por ejemplo, eliminar un token de localStorage
+        localStorage.removeItem('authToken');
+        
+        // Redirigir a la página de inicio de sesión
+        navigate('/');
+    };
+
+    return (
+        <>
+            <NavContainer>
+                <img src="./img/Logotipo.png" alt="Logotipo" width="100" height="50" />
+                <h2>Carrera de <span>Ciclismo</span></h2>
+                <div className={`links ${clicked ? 'active' : ''}`}>
+                    <a onClick={handleClick} href="#h">Inscripción</a>
+                    <a onClick={handleClick} href="#h">Organizador</a>
+                    {userId && (
+                        <Link to={`/perfil/${userId}`} onClick={handleClick}>Perfil</Link>
+                    )}
+                    {userId && (
+                        <a onClick={handleLogout} style={{ cursor: 'pointer' }}>Cerrar Sesión</a>
+                    )}
+                </div>
+                <BurguerButton clicked={clicked} handleClick={handleClick} />
+            </NavContainer>
+        </>
+    );
 }
 
-export default Navbar
+export default Navbar;
 
 const NavContainer = styled.nav`
-  h2{
+  h2 {
     color: white;
     font-weight: 400;
-    span{
+    span {
       font-weight: bold;
     }
   }
-  padding: .4rem;
-  background-color: #333;
+  padding: 0.4rem;
+  background-color: #000000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  a{
+  a {
     color: white;
     text-decoration: none;
     margin-right: 1rem;
   }
-  .links{
+  .links {
     position: absolute;
     top: -700px;
     left: -2000px;
@@ -55,16 +70,16 @@ const NavContainer = styled.nav`
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    transition: all .5s ease;
-    a{
+    transition: all 0.5s ease;
+    a {
       color: white;
       font-size: 2rem;
       display: block;
     }
-    @media(min-width: 768px){
+    @media (min-width: 768px) {
       position: initial;
       margin: 0;
-      a{
+      a {
         font-size: 1rem;
         color: white;
         display: inline;
@@ -72,7 +87,7 @@ const NavContainer = styled.nav`
       display: block;
     }
   }
-  .links.active{
+  .links.active {
     width: 100%;
     display: block;
     position: absolute;
@@ -82,18 +97,18 @@ const NavContainer = styled.nav`
     left: 0;
     right: 0;
     text-align: center;
-    a{
+    a {
       font-size: 2rem;
       margin-top: 1rem;
-      color: white;
+      color: blue;
     }
   }
-  .burguer{
-    @media(min-width: 768px){
+  .burguer {
+    @media (min-width: 768px) {
       display: none;
     }
   }
-`
+`;
 
 const BgDiv = styled.div`
   background-color: #222;
@@ -103,13 +118,13 @@ const BgDiv = styled.div`
   width: 100%;
   height: 100%;
   z-index: -1;
-  transition: all .6s ease ;
-  
-  &.active{
+  transition: all 0.6s ease;
+
+  &.active {
     border-radius: 0 0 80% 0;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
   }
-`
+`;
