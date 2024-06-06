@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb://127.0.0.1:27018/ciclimo");
+mongoose.connect("mongodb://carrera:TjrXqSJSk2sP4ESn8eEHeMLtEYgFPWvUlHUHgGQkxmhimprG9mfWmDcK4jEawibHlDIDwNDUZ62BACDbhVd0Tg==@carrera.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@carrera@");
 
 app.post("/login", (req, res) => {
     const { email, password } = req.body;
